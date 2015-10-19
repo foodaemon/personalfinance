@@ -1,1 +1,9 @@
-de6d66ec-76b7-11e5-a69b-7831c1d1c0be
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Personal Finance Project.");
+    }
+}
