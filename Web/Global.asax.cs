@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using NLog;
 
 namespace Web
 {
 	public class MvcApplication : System.Web.HttpApplication
 	{
+		private ILogger _logger = LogManager.GetCurrentClassLogger();
+
 		public static void RegisterGlobalFilters (GlobalFilterCollection filters)
 		{
 			filters.Add (new HandleErrorAttribute ());
@@ -23,6 +26,21 @@ namespace Web
 
 			FilterConfig.RegisterGlobalFilters (GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes (RouteTable.Routes);
+
+			// Logger Config
+			LoggerConfig.SetUp();
+		}
+
+		/// <summary>
+		/// Handles the Error event of the Application control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		protected void Application_Error(object sender, EventArgs e)
+		{
+			// Code that runs when an unhandled error occurs
+			var ex = Server.GetLastError();
+			_logger.Fatal(ex.Message);	
 		}
 	} // class
 } // namespace

@@ -78,13 +78,17 @@ namespace Web.Controllers
             }
         }
 
+
+		/// <summary>
+		/// GET /account/signin
+		/// </summary>
 		[HttpGet]
 		[AllowAnonymous]
 		public ActionResult Signin()
 		{
 			return View ("Signin");
 		}
-
+			
 		[HttpPost]
 		[AllowAnonymous]
 		[ValidateAntiForgeryToken]
@@ -122,6 +126,7 @@ namespace Web.Controllers
 			return RedirectToAction ("Index", "Home");
 		}
 
+		[HttpGet]
 		public ActionResult Signout()
 		{
 			FormsAuthentication.SignOut ();
