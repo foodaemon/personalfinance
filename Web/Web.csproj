@@ -92,4 +92,14 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{FB65B36C-8DB7-4349-8E2B-F34A8A0F8CB9}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Biz\Service.csproj">
+      <Project>{6902D2EB-2A4C-4A2E-BB96-4A2A241A85C0}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

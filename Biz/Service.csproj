@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6902D2EB-2A4C-4A2E-BB96-4A2A241A85C0}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Biz</RootNamespace>
+    <RootNamespace>Service</RootNamespace>
     <AssemblyName>Biz</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
@@ -32,6 +32,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\IAccountService.cs" />
+    <Compile Include="Interfaces\ICategoryService.cs" />
+    <Compile Include="Interfaces\IEncryptionService.cs" />
+    <Compile Include="Interfaces\ITransactionService.cs" />
+    <Compile Include="AccountService.cs" />
+    <Compile Include="CategoryService.cs" />
+    <Compile Include="EncryptionService.cs" />
+    <Compile Include="TransactionService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{FB65B36C-8DB7-4349-8E2B-F34A8A0F8CB9}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{D59F0A17-EB00-4080-A4E8-05C75ED1A8E7}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
 </Project>
