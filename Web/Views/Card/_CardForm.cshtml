@@ -1,0 +1,24 @@
+﻿@model Core.Domains.Card
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { data_parsley_validate=""})) 
+{
+	@Html.AntiForgeryToken()
+
+	@Html.HiddenFor(model => model.Id)
+  	<div class="form-group">
+  		@Html.LabelFor(model => model.Name)
+  		@Html.TextBoxFor(model => model.Name, new { @class="form-control", placeholder="e.g. Chase-1436"})
+  	</div>
+  	<div class="form-group">
+  		@Html.LabelFor(model => model.Card_Type, "Card Type")
+  		@Html.TextBoxFor(model => model.Card_Type, new { @class="form-control"})
+  	</div>
+  	<div class="form-group">
+  		@Html.LabelFor(model => model.Comment)
+  		@Html.TextBoxFor(model => model.Comment, new { @class="form-control"})
+  	</div>
+  	<button type="submit" class="btn btn-primary">Save</button>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Core.Domains.Category>
+
+@{
+    ViewBag.Title = "Categories";
+	//Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <table class="table">
+    	<thead>
+    		<tr>
+    	  		<th>Name</th>
+    			<th>Description</th>
+    			<th></th>
+    	  	</tr>
+    	</thead>
+		<tbody>
+			@foreach(var item in Model)
+			{
+			<tr>
+				<td>@item.Name</td>
+				<td>@item.Description</td>
+				<th>
+					<a href="/category/edit/@item.Id"><span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="/category/delete/@item.Id"><span class="glyphicon glyphicon-trash"></span></a>
+				</th>
+			</tr>
+			}
+		</tbody>
+	</table>
+	<p>
+		<a href="/category/create" class="btn btn-primary">Create New Category</a>
+	</p>
+</div>

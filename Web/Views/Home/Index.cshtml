@@ -1,2 +1,126 @@
-﻿<h2>Welcome to ASP.NET MVC @ViewData["Version"] on @ViewData["Runtime"]!</h2>
+﻿@model Web.ViewModels.DashboardViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
+@section extrajs
+{
+    <script type="text/javascript" src="/scripts/chart.js"></script>
+    <script type="text/javascript" src="/scripts/randomColor.js"></script>
+}
+
+<div class="row">
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <h3>@Model.TotalMonthlyIncome<sup style="font-size: 20px">$</sup></h3></h3>
+                <p>This month's Income</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box bg-red">
+            <div class="inner">
+                <h3>@Model.TotalMonthlyExpense<sup style="font-size: 20px">$</sup></h3>
+                <p>This month's expenses</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box bg-green">
+            <div class="inner">
+                <h3>@Model.TotalYearlyIncome</h3>
+                <p>This Year's Income</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box bg-orange">
+            <div class="inner">
+                <h3>@Model.TotalYearlyExpenses</h3>
+                <p>This year's Expenses</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 connectedSortable">
+    </div>
+</div>
+
+<div class="row">
+    <section class="col-lg-6 connectedSortable"> 
+        <div class="box box-info">
+            <div class="box-header">
+                <i class="fa fa-envelope"></i>
+                <h3 class="box-title">Expenses by Category (this month)</h3>
+                <div class="pull-right box-tools">
+                    <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-refresh"></i></button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div id="canvas-holder">
+					<canvas id="chart-area" width="300" height="300"/>
+				</div>
+            </div>
+            <div class="box-footer clearfix">
+                <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
+            </div>
+        </div>
+    </section>
+</div>
+@section extrascripts
+{
+	<script type="text/javascript">
+		$(function(){
+			getExpensesByCategory();
+		});
+
+		function getExpensesByCategory(){
+			$.ajax({
+				url: "/transaction/expensesbycategory",
+				dataType: "json",
+				type: "GET",
+				error: function(){
+					console.log('failed to get data');
+				},
+				success: function(data){
+					finance.drawPieChart(data, "chart-area");
+				}
+			});
+		}
+
+		function getYearlyTransactionsByMonth(isIncome = false){
+			var jsonData = {};
+			$.ajax({
+				url: '/transaction/yearlybymonth?isIncome=' + isIncome,
+				dataType: 'json',
+				type: 'GET',
+				error: function(){
+					console.log('failed to get data');
+				},
+				success: function(data){
+					jsonData = data;
+				}
+			});
+		}
+   </script>
+}

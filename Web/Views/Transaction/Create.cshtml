@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+@section extracss
+{
+    <link href="/content/bootstrap-datepicker.css" rel="stylesheet" type="text/css" />
+}
+
+@section extrajs
+{
+    <script type="text/javascript" src="/scripts/parsley.js"></script> 
+    <script type="text/javascript" src="/scripts/moment.js"></script> 
+    <script type="text/javascript" src="/scripts/bootstrap-datepicker.js"></script> 
+}
+
+@{ Html.RenderPartial("_TransactionForm"); }
+
+@section extrascripts 
+{
+  <script type="text/javascript">
+    $(function(){
+      $('#dp_transaction').datetimepicker();
+    });
+
+  		function CategoryCtrl($scope, $http){
+            $scope.selectedCategory = "";
+            $scope.categories = [];
+
+            $http({
+                method: "GET",
+                url: "/category/index",
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            }).success(function(result){
+                $scope.categories = result;
+            });
+        }	
+  	</script>
+}

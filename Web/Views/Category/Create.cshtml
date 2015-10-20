@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+@section extrajs
+{
+     <script type="text/javascript" src="/scripts/parsley.js"></script> 
+}
+<form method="post" action="/Category/Create">
+     @Html.AntiForgeryToken()
+     <div class="form-group">
+     	<label>Name</label>
+     	<input type="text" id="name" name="Name" class="form-control" placeholder="e.g Shopping" />
+     </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

@@ -1,0 +1,39 @@
+﻿@model  Web.ViewModels.TransactionViewModel
+
+<div class="box box-info">
+    <div class="box-header">
+        <i class="fa fa-envelope"></i>
+        <h3 class="box-title">Transaction</h3>
+    </div>
+	<div class="box-body">
+    	@using (Html.BeginForm(null, null, FormMethod.Post, new { data_parsley_validate=""})) 
+    	{
+			@Html.AntiForgeryToken()
+			@Html.HiddenFor(model => model.Transaction.Id)
+			<div class="form-group" ng-controller="CategoryCtrl">
+  				<label for="Category">Category</label>
+  				@Html.DropDownListFor(model => model.Transaction.Category_Id, Model.CategorySelectList,  new {@class="form-control"})
+  			</div>
+  			<div class="form-group">
+                <input type="text" class="form-control" name="Transaction.Description" value="@Model.Transaction.Description" placeholder="e.g. Tom Thumb"/>
+            </div>
+			<div class="form-group">
+                <input type="text" class="form-control" name="Transaction.Amount" value="@Model.Transaction.Amount" placeholder="e.g. 10.02"/>
+            </div>
+			<div class="form-group date" id='dp_transaction' data-date-format="MM/DD/YYYY">
+                <input type='text' id="transaction_date" class="form-control" name="Transaction.Date" value="@Model.Transaction.Date.ToShortDateString()" placeholder="mm/dd/yyyy"/>
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+            </div>
+			<div class="form-group">
+				@Html.CheckBoxFor(x => x.Transaction.Is_Income, new {@class="simple"})  Is Income
+            </div>
+			<div>
+                <textarea name="Transaction.Comments" class="textarea" placeholder="Comment" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@Model.Transaction.Comments</textarea>
+            </div>
+			<div class="box-footer clearfix">
+        		<button type="submit" class="pull-right btn btn-default" id="SaveTransaction">Save <i class="fa fa-arrow-circle-right"></i></button>
+    		</div>
+		}
+</div>

@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Edit Transaction";
+}
+@section extrajs
+{
+   <script type="text/javascript" src="/scripts/parsley.js"></script> 
+}
+
+@{ Html.RenderPartial("_TransactionForm"); }
+
+@section extrascripts 
+{
+	<script type="text/javascript">
+  		function CategoryCtrl($scope, $http){
+            $scope.selectedCategory = "";
+            $scope.categories = [];
+
+            $http({
+                method: "GET",
+                url: "/category/index",
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            }).success(function(result){
+                $scope.categories = result;
+            });
+        }	
+  	</script>
+}
