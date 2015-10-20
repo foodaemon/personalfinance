@@ -88,7 +88,6 @@
     <Folder Include="Content\fonts\" />
     <Folder Include="Content\images\" />
     <Folder Include="Views\Account\" />
-    <Folder Include="Views\Card\" />
     <Folder Include="Views\Category\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\" />
@@ -150,10 +149,6 @@
     <Content Include="Content\images\avatar_male.png" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Signin.cshtml" />
-    <Content Include="Views\Card\Create.cshtml" />
-    <Content Include="Views\Card\Index.cshtml" />
-    <Content Include="Views\Card\Update.cshtml" />
-    <Content Include="Views\Card\_CardForm.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Update.cshtml" />
