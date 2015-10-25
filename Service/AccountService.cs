@@ -8,13 +8,14 @@ namespace Service
 {
 	public class AccountService : IAccountService
 	{
-		private readonly IRepository<Account> _accountRepo;
+		private readonly IRepository<Account> _repo;
 		private readonly IEncryptionService _encryptionService;
 
-		public AccountService()
+		public AccountService(IRepository<Account> repo,
+			IEncryptionService encryptionService)
 		{
-			_accountRepo = new Repository<Account>();
-			_encryptionService = new EncryptionService ();
+			_repo = repo;
+			_encryptionService = encryptionService;
 		}
 
 		/// <summary>
@@ -41,7 +42,7 @@ namespace Service
 				Updated_At = DateTime.Now
 			};
 
-			_accountRepo.Insert (account);
+			_repo.Insert (account);
 
 		}
 
@@ -51,7 +52,7 @@ namespace Service
 		/// <returns>The all users.</returns>
 		public IEnumerable<Account> GetAllUsers()
 		{
-			var accounts = _accountRepo.Table.ToList();
+			var accounts = _repo.Table.ToList();
 			return accounts;
 		}
 
@@ -63,7 +64,8 @@ namespace Service
 		public Account GetAccountByEmail(string email)
 		{
 			email = email.ToLower ();
-			var account = _accountRepo.Table.SingleOrDefault(x => x.Email == email);
+			var account = _repo.Table
+				.SingleOrDefault(x => x.Email == email);
 			return account;
 		}
 

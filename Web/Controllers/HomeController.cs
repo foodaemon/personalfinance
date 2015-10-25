@@ -16,7 +16,11 @@ namespace Web.Controllers
 
 		public HomeController()
 		{
-			_transactionService = new TransactionService ();
+		}
+
+		public HomeController(ITransactionService transactionService)
+		{
+			_transactionService = transactionService;
 		}
 
 		public ActionResult Index ()

@@ -1,3 +1,6 @@
+using Web.Infrastructure;
+using Service;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Web.App_Start.NinjectWebCommon), "Stop")]
 
@@ -61,6 +64,8 @@ namespace Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+			kernel.Load (new ServiceModule ());
+			kernel.Load (new WebModule ());
         }        
     } // class
 } // namespace

@@ -11,6 +11,7 @@ namespace Web.Infrastructure
 		{
 			Bind<IAccountService>().To<AccountService>();
 			Bind<ICategoryService>().To<CategoryService>();
+			Bind<ITransactionService> ().To<TransactionService> ();
 		}
 	} // class
 } // namespace

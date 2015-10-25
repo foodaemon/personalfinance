@@ -13,9 +13,9 @@ namespace Web.Controllers
     {
 		private readonly ICategoryService _categoryService;
 
-		public CategoryController()
+		public CategoryController(ICategoryService categoryService)
 		{
-			_categoryService = new CategoryService();
+			_categoryService = categoryService;
 		}
 
         public ActionResult Index()

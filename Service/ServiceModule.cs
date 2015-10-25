@@ -11,6 +11,8 @@ namespace Service
 		{
 			Bind<IRepository<Account>>().To<Repository<Account>>();
 			Bind<IRepository<Category>>().To<Repository<Category>>();
+			Bind<IRepository<Transaction>>().To<Repository<Transaction>>();
+
 		}
 	} // class
 } // namespace

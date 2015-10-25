@@ -16,10 +16,12 @@ namespace Web.Controllers
 		private readonly ICategoryService _categoryService;
 		private readonly ITransactionService _transactionService;
 
-		public TransactionController()
+		public TransactionController(ICategoryService categoryService,
+			ITransactionService transactionSerice
+		)
 		{
-			_categoryService = new CategoryService();
-			_transactionService = new TransactionService();
+			_categoryService = categoryService;
+			_transactionService = transactionSerice;
 		}
 
 		[HttpGet]
