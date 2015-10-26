@@ -4,6 +4,9 @@
     ViewBag.Title = "Categories";
 	//Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<link href="/content/datables.css" rel="stylesheet" type="text/css" />
+<link href="/content/scroller.bootstrap.css" rel="stylesheet" type="text/css" />
 <div class="row">
     <table class="table">
     	<thead>
@@ -31,3 +34,4 @@
 		<a href="/category/create" class="btn btn-primary">Create New Category</a>
 	</p>
 </div>
+@Scripts.Render("~/bundles/datatables")
