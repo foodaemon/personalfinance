@@ -40,6 +40,9 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Models\AccountData.cs" />
+    <Compile Include="IPagedList.cs" />
+    <Compile Include="PagedList.cs" />
+    <Compile Include="PageExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
