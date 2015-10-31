@@ -17,10 +17,17 @@ namespace Web
 			));
 
 			// styles bundles
-			bundles.Add(new StyleBundle("~/Content/css").Include(
+			bundles.Add(new StyleBundle("~/content/css").Include(
 				"~/Content/bootstrap.css",
 				"~/Content/font-awesome.css",
+				"~/toastr.css",
 				"~/Content/site.css"));
+
+			bundles.Add (new StyleBundle ("~/content/datatables").Include (
+				"~/Content/datatables.css",
+				"~/Content/scroller.bootstrap.css",
+				"~/Content/select.bootstrap.css"
+			));
 		}
 	} // class
 } // namespace
