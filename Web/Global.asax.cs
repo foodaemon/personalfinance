@@ -5,14 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Optimization;
-using NLog;
+using Core.Logging;
 
 namespace Web
 {
 	public class MvcApplication : System.Web.HttpApplication
 	{
-		private ILogger _logger = LogManager.GetCurrentClassLogger();
-
 		public static void RegisterGlobalFilters (GlobalFilterCollection filters)
 		{
 			filters.Add (new HandleErrorAttribute ());
@@ -30,8 +28,6 @@ namespace Web
 
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-			// Logger Config
-			LoggerConfig.SetUp();
 		}
 
 		/// <summary>
@@ -43,7 +39,7 @@ namespace Web
 		{
 			// Code that runs when an unhandled error occurs
 			var ex = Server.GetLastError();
-			_logger.Fatal(ex.Message);	
+			Logger<MvcApplication>.GetInstance.Error (ex.Message);
 		}
 	} // class
 } // namespace
