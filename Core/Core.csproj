@@ -43,11 +43,14 @@
     <Compile Include="IPagedList.cs" />
     <Compile Include="PagedList.cs" />
     <Compile Include="PageExtension.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\Logger.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Domains\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\" />
+    <Folder Include="Logging\" />
   </ItemGroup>
 </Project>
