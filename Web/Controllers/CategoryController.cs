@@ -18,6 +18,7 @@ namespace Web.Controllers
 			_categoryService = categoryService;
 		}
 
+		[HttpGet]
         public ActionResult Index()
         {
 			var categories = _categoryService.GetAllCategories();
@@ -28,11 +29,13 @@ namespace Web.Controllers
 			return View ("Index", categories);
         }
 
+		[HttpGet]
         public ActionResult Details(int id)
         {
             return View ();
         }
 
+		[HttpGet]
         public ActionResult Create()
         {
 			return View ("Create");
@@ -53,9 +56,11 @@ namespace Web.Controllers
             }
         }
         
+		[HttpGet]
         public ActionResult Edit(int id)
         {
-            return View ();
+			var category = _categoryService.GetCategoryById (id);
+            return View ("Edit", category);
         }
 
         [HttpPost]
@@ -73,6 +78,7 @@ namespace Web.Controllers
             }
         }
 
+		[HttpGet]
         public ActionResult Delete(int id)
         {
 			_categoryService.DeleteCategory (id: id);
