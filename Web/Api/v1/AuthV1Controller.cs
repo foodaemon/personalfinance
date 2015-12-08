@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Web.Http;
+using Web.Infrastructure;
 
-namespace Web.Controllers
+namespace Web.Api.v1
 {
 	[VersionedRoute("api/auth", 1)]
 	public class AuthV1Controller : BaseApiController
