@@ -2,7 +2,7 @@
 using System.Web.Http.Routing;
 using System.Collections.Generic;
 
-namespace Web
+namespace Web.Infrastructure
 {
 	internal class VersionedRoute : RouteFactoryAttribute
 	{

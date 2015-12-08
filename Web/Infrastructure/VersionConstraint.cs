@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Web
+namespace Web.Infrastructure
 {
 	/// <summary>
 	/// A Constraint implementation that matches an HTTP header against an expected version value.
