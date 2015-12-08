@@ -124,6 +124,7 @@
     <Folder Include="Views\Shared\" />
     <Folder Include="Views\Transaction\" />
     <Folder Include="Api\" />
+    <Folder Include="Api\v1\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -145,12 +146,14 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Infrastructure\WebModule.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Api\AuthV1Controller.cs" />
     <Compile Include="Infrastructure\BaseApiController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Infrastructure\GlobalExceptionHandler.cs" />
     <Compile Include="Infrastructure\NinjectScope.cs" />
     <Compile Include="Infrastructure\NinjectResolver.cs" />
+    <Compile Include="Infrastructure\VersionConstraint.cs" />
+    <Compile Include="Infrastructure\VersionedRoute.cs" />
+    <Compile Include="Api\v1\AuthV1Controller.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
