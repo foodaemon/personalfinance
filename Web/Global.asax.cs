@@ -20,15 +20,15 @@ namespace Web
 		protected void Application_Start ()
 		{
 			ViewEngines.Engines.Clear (); // clear all view engines
-			ViewEngines.Engines.Add (new RazorViewEngine()); // add razor view engines
+			ViewEngines.Engines.Add(new RazorViewEngine()); // add razor view engines
 
 			// Register WebApi
-			GlobalConfiguration.Configure (WebApiConfig.Register);
+			GlobalConfiguration.Configure(WebApiConfig.Register);
 
-			AreaRegistration.RegisterAllAreas ();
+			AreaRegistration.RegisterAllAreas();
 
-			FilterConfig.RegisterGlobalFilters (GlobalFilters.Filters);
-			RouteConfig.RegisterRoutes (RouteTable.Routes);
+			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+			RouteConfig.RegisterRoutes(RouteTable.Routes);
 
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 
