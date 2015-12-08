@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Optimization;
 using Core.Logging;
+using System.Web.Http;
 
 namespace Web
 {
@@ -20,6 +21,9 @@ namespace Web
 		{
 			ViewEngines.Engines.Clear (); // clear all view engines
 			ViewEngines.Engines.Add (new RazorViewEngine()); // add razor view engines
+
+			// Register WebApi
+			GlobalConfiguration.Configure (WebApiConfig.Register);
 
 			AreaRegistration.RegisterAllAreas ();
 
