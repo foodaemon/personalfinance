@@ -3,7 +3,7 @@ using System.Web.Http;
 using System.Net.Http;
 using System.Net;
 
-namespace Web.Controllers
+namespace Web.Infrastructure
 {
 	public class BaseApiController : ApiController
 	{
