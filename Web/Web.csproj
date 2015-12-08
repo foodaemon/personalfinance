@@ -149,6 +149,8 @@
     <Compile Include="Infrastructure\BaseApiController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Infrastructure\GlobalExceptionHandler.cs" />
+    <Compile Include="Infrastructure\NinjectScope.cs" />
+    <Compile Include="Infrastructure\NinjectResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
