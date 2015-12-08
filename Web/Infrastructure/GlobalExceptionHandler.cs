@@ -7,7 +7,7 @@ using System.Threading;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 
-namespace Web
+namespace Web.Infrastructure
 {
 	public class GlobalExceptionHandler : ExceptionHandler
 	{

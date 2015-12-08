@@ -3,7 +3,7 @@ using System.Web.Http.Dependencies;
 using Ninject.Syntax;
 using Ninject;
 
-namespace Web
+namespace Web.Infrastructure
 {
 	public class NinjectScope : IDependencyScope
 	{
