@@ -2,7 +2,7 @@
 using Core.Domains;
 using System.Collections.Generic;
 
-namespace Service
+namespace Service.Interfaces
 {
 	public interface IAccountService
 	{
@@ -11,20 +11,27 @@ namespace Service
 		/// </summary>
 		/// <param name="email">Email.</param>
 		/// <param name="password">Password.</param>
-		void CreateAccount(string email, string password);
+		void Create(string email, string password);
 
 		/// <summary>
 		/// Gets all users.
 		/// </summary>
 		/// <returns>The all users.</returns>
-		IEnumerable<Account> GetAllUsers();
+		IEnumerable<Account> GetAll();
 
 		/// <summary>
 		/// Gets the account by email.
 		/// </summary>
 		/// <returns>The account by email.</returns>
 		/// <param name="email">Email.</param>
-		Account GetAccountByEmail(string email);
+		Account GetByEmail(string email);
+
+		/// <summary>
+		/// Gets the account by token.
+		/// </summary>
+		/// <returns>The account by token.</returns>
+		/// <param name="token">Token.</param>
+		Account GetByToken (string token);
 
 		/// <summary>
 		/// Validates the account.
@@ -32,6 +39,6 @@ namespace Service
 		/// <returns><c>true</c>, if account was validated, <c>false</c> otherwise.</returns>
 		/// <param name="email">Email.</param>
 		/// <param name="password">Password.</param>
-		bool ValidateAccount(string email, string password);
+		bool Validate(string email, string password);
 	}
 }
