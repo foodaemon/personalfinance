@@ -26,4 +26,12 @@ namespace Core
 		Dec = 12
 	}
 
+	public enum AccountRole
+	{
+		Admin = 0,
+		GroupAdmin = 1,
+		User = 2,
+		Unknown = -1
+	}
+
 } // namespace
