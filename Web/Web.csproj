@@ -108,6 +108,9 @@
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="Swashbuckle.Core">
+      <HintPath>..\packages\Swashbuckle.Core.5.2.2\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -154,6 +157,8 @@
     <Compile Include="Infrastructure\VersionConstraint.cs" />
     <Compile Include="Infrastructure\VersionedRoute.cs" />
     <Compile Include="Api\v1\AuthV1Controller.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="Infrastructure\ApiAuthorizationFilter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -232,5 +237,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\swagger-utils.js" />
   </ItemGroup>
 </Project>
