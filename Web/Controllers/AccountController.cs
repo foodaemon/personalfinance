@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using Service;
+using Service.Interfaces;
 using Core.Models;
 
 namespace Web.Controllers
@@ -98,7 +98,7 @@ namespace Web.Controllers
 			var password = collection ["password"];
 			var createPersistentCookie = collection ["remember_me"];
 
-			var isValidAccount = _accountService.ValidateAccount (email, password);
+			var isValidAccount = _accountService.Validate(email, password);
 			if (isValidAccount == false)
 				return RedirectToAction ("Signin", "Account");
 
